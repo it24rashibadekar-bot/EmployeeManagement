@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Management System</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form {
+            width: 400px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #eeeeee;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Employee Management System</h1>
+
+<div class="form">
+
+    <label>Employee ID</label>
+    <input type="text" id="employeeId" placeholder="Enter Employee ID">
+
+    <label>Employee Name</label>
+    <input type="text" id="employeeName" placeholder="Enter Employee Name">
+
+    <label>Department</label>
+    <input type="text" id="department" placeholder="Enter Department">
+
+    <label>Salary</label>
+    <input type="text" id="salary" placeholder="Enter Salary">
+
+    <button onclick="addEmployee()">Add Employee</button>
+
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+
+    <tbody id="employeeBody">
+    </tbody>
+</table>
+
+<script>
+
+function addEmployee() {
+
+    let id = document.getElementById("employeeId").value;
+    let name = document.getElementById("employeeName").value;
+    let department = document.getElementById("department").value;
+    let salary = document.getElementById("salary").value;
+
+    if (id === "" || name === "" || department === "" || salary === "") {
+        alert("Please enter all employee details");
+        return;
+    }
+
+    let table = document.getElementById("employeeBody");
+
+    let row = table.insertRow();
+
+    row.insertCell(0).innerHTML = id;
+    row.insertCell(1).innerHTML = name;
+    row.insertCell(2).innerHTML = department;
+    row.insertCell(3).innerHTML = salary;
+
+    document.getElementById("employeeId").value = "";
+    document.getElementById("employeeName").value = "";
+    document.getElementById("department").value = "";
+    document.getElementById("salary").value = "";
+}
+
+</script>
+
+</body>
+</html>
